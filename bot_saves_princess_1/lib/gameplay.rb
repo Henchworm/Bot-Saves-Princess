@@ -14,7 +14,7 @@ class GamePlay
     GameFormatter.print_intro
     grid = build_grid
 
-    bot_position      = grid.find_character('m') || grid.center
+    bot_position      = grid.find_character('m') 
     princess_position = grid.find_character('p')
 
     GameFormatter.print_grid(grid.rows)

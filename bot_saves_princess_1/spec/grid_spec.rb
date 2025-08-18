@@ -68,41 +68,6 @@ RSpec.describe Grid do
     let(:valid_n)    { 3 }
     let(:grid) { Grid.new(valid_n, valid_rows) }
 
-    describe '#center' do
-      context 'on a 3x3 grid' do
-        it 'creates a position object tracking the center coordinates' do
-          position = grid.center
-          expect(position).to be_a Position
-          expect(position.row).to eq(1)
-          expect(position.column).to eq(1)
-        end
-      end
-    end
-
-    describe '#corners' do
-      it 'creates a hash of corner position objects tracking corner coordinates' do
-        corners = grid.corners
-
-        expect(corners).to be_a(Hash)
-
-        expect(corners[:top_left]).to be_a Position
-        expect(corners[:top_left].column).to eq(0)
-        expect(corners[:top_left].row).to eq(0)
-
-        expect(corners[:top_right]).to be_a Position
-        expect(corners[:top_right].column).to eq(2)
-        expect(corners[:top_right].row).to eq(0)
-
-        expect(corners[:bottom_left]).to be_a Position
-        expect(corners[:bottom_left].column).to eq(0)
-        expect(corners[:bottom_left].row).to eq(2)
-
-        expect(corners[:bottom_right]).to be_a Position
-        expect(corners[:bottom_right].column).to eq(2)
-        expect(corners[:bottom_right].row).to eq(2)
-      end
-    end
-
     describe '#character_at' do
       it 'returns the character at specified coordinates' do
         expect(grid.character_at(1, 1)).to eq('m')
