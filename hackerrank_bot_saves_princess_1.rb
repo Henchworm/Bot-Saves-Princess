@@ -24,21 +24,6 @@ class Grid
     @rows = rows
   end
 
-  def center
-    middle = n / 2
-    Position.new(middle, middle)
-  end
-
-  def corners
-    last = n - 1
-    {
-      top_left: Position.new(0, 0),
-      top_right: Position.new(0, last),
-      bottom_left: Position.new(last, 0),
-      bottom_right: Position.new(last, last)
-    }
-  end
-
   def character_at(row, column)
     rows[row][column]
   end
