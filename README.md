@@ -1,10 +1,86 @@
 # Bot-Saves-Princess
 Repository for SESAC/Harry Fox Agency developer code challenge, written by candidate Chris Hewitt. 
-
-## Iteration 1: 'Bot Saves Princess 1' 
-
 My intention with this take-home assignment is to demonstrate how I leverage the strengths of the Ruby language as well as OOP fundamentals, as well as add error handling, documentation, and safe/readable methods that I would expect to see in a production Ruby codebase. There are more comments than I would generally write in production, but since you are evaluating my coding ability in a professional enviornment I wanted to be as clear as possible in my thought process. 
 
+## Requirements
+- Ruby 2.7.2
+- Bundler (`gem install bundler`) 
+
+## Project Setup 
+Each version of the HackerRank problem lives in it's own directory. 
+bot_saves_princess_1
+├── lib
+│   ├── bot.rb
+│   ├── gameformatter.rb
+│   ├── gameplay.rb
+│   ├── grid.rb
+│   ├── gridbuilder.rb
+│   ├── position.rb
+│   └── runner.rb
+├── spec
+│   ├── bot_spec.rb
+│   ├── gameformatter_spec.rb
+│   ├── gameplay_spec.rb
+│   ├── grid_spec.rb
+│   ├── gridbuilder_spec.rb
+│   ├── position_spec.rb
+│   └── spec_helper.rb
+
+The HackerRank solutions ready for copypasting live in the root directory, along with the Gemfile, Gemfile.lock, README, CircleCi and Ruby config. 
+.
+├── .circleci
+│   └── config.yml
+├── bot_saves_princess_1
+│   ├── lib/
+│   └── spec/
+├── bot_saves_princess_2
+│   ├── lib/
+│   └── spec/
+├── .gitignore
+├── .ruby-version
+├── Gemfile
+├── Gemfile.lock
+├── hackerrank_bot_saves_princess_1.rb
+├── hackerrank_bot_saves_princess_2.rb
+├── Rakefile
+└── README.md
+
+Upon cloning the project(git clone https://github.com/Henchworm/Bot-Saves-Princess.git), run ```bundle install``` to install dependencies. 
+
+## Running the Test Suite
+
+This project uses RSpec for testing and Rubocop for linting. 
+You can run the test suite from the root of the project using Rake. 
+
+Install dependencies:
+```
+bundle install
+```
+
+Run tests for implementations 1 and 2 individually: 
+```
+rake spec1
+```
+
+```
+rake spec2
+```
+
+Run entire test suite:
+```
+rake spec all 
+```
+
+Run linter:
+```
+rake rubocop 
+```
+
+Run linter and all specs:
+```
+rake default
+```
+## Iteration 1: 'Bot Saves Princess 1' 
 A full breakdown of each class's function and responsibility is below. 
 
 ### Position  
