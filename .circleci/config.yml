@@ -1,0 +1,33 @@
+version: 2.1
+
+executors:
+  ruby-executor:
+    docker:
+      - image: cimg/ruby:2.7.2 
+    working_directory: ~/project
+
+jobs:
+  test:
+    executor: ruby-executor
+    steps:
+      - checkout
+
+      - run:
+          name: Install dependencies
+          command: |
+            gem install bundler
+            bundle install --jobs=4 --retry=3
+
+      - run:
+          name: Run RuboCop
+          command: bundle exec rubocop
+
+      - run:
+          name: Run RSpec
+          command: bundle exec rspec
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
