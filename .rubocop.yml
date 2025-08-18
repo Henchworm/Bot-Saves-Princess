@@ -4,7 +4,9 @@ AllCops:
   Exclude:
     - 'hackerrank_bot_saves_princess_1.rb'
     - 'hackerrank_bot_saves_princess_2.rb'
-
+inherit_mode:
+  merge:
+    - Exclude
 Layout/LineLength:
   Enabled: false
 Layout/IndentationConsistency:
