@@ -1,4 +1,6 @@
 # Bot-Saves-Princess
+[![CircleCI](https://circleci.com/gh/Henchworm/Bot-Saves-Princess.svg?style=svg)](https://app.circleci.com/projects/github/Henchworm/Bot-Saves-Princess)
+
 Repository for SESAC/Harry Fox Agency developer code challenge, written by candidate Chris Hewitt. 
 My intention with this take-home assignment is to demonstrate how I leverage the strengths of the Ruby language as well as OOP fundamentals, as well as add error handling, documentation, and safe/readable methods that I would expect to see in a production Ruby codebase. There are more comments than I would generally write in production, but since you are evaluating my coding ability in a professional enviornment I wanted to be as clear as possible in my thought process. 
 
