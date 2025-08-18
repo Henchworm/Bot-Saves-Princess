@@ -1,4 +1,3 @@
-# challenges/bot_saves_princess_1/lib/gameplay.rb
 # frozen_string_literal: true
 
 require_relative 'grid'
@@ -14,7 +13,7 @@ class GamePlay
     GameFormatter.print_intro
     grid = build_grid
 
-    bot_position      = grid.find_character('m') 
+    bot_position      = grid.find_character('m')
     princess_position = grid.find_character('p')
 
     GameFormatter.print_grid(grid.rows)
