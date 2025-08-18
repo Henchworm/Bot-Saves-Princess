@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.7.2'
+ruby '2.7.8'
 
 gem 'rake', '~> 13.2'
 

@@ -1,33 +1,45 @@
+# .circleci/config.yml
 version: 2.1
 
-executors:
-  ruby-executor:
-    docker:
-      - image: cimg/ruby:2.7.2 
-    working_directory: ~/project
-
 jobs:
-  test:
-    executor: ruby-executor
+  build:
+    docker:
+      - image: cimg/ruby:2.7.8
     steps:
       - checkout
 
+      - run: ruby -v && gem -v
+
+      - restore_cache:
+          keys:
+            - bundler-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - bundler-v1-{{ arch }}-{{ .Branch }}
+            - bundler-v1
+
       - run:
-          name: Install dependencies
+          name: Install Bundler 2.4.22 & Gems
           command: |
-            gem install bundler
-            bundle install --jobs=4 --retry=3
+            gem install bundler -v 2.4.22
+            bundle _2.4.22_ config set path 'vendor/bundle'
+            bundle _2.4.22_ install --jobs=4 --retry=3
+
+      - save_cache:
+          key: bundler-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: Run tests
+          command: |
+            bundle _2.4.22_ exec rake -f Rakefile spec_all
 
       - run:
           name: Run RuboCop
-          command: bundle exec rubocop
-
-      - run:
-          name: Run RSpec
-          command: bundle exec rspec
+          command: |
+            bundle _2.4.22_ exec rubocop
 
 workflows:
   version: 2
-  test:
+  build_and_test:
     jobs:
-      - test
+      - build
