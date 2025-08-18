@@ -106,7 +106,7 @@ There are far fewer complex stubs - a perk of removing user interaction - but we
 SimpleCov ensures complete coverage. 
 
 ## Gems/Tools/Resources 
-ruby '2.7.2' - I'm a little out of date here, but with the time crunch of a take home I decided not to mess with my Ruby version and related config. 
+ruby '2.7.8' - I'm a little out of date here, but with the time crunch of a take home I decided not to mess with my Ruby version and related config. 
 
 gem 'rake' - Added rake and a rake file to save myself from typing 'bundle exec.' 
 
