@@ -4,7 +4,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/ruby:2.7.8 
+      - image: cimg/ruby:2.7.8
     steps:
       - checkout
 
@@ -17,9 +17,8 @@ jobs:
             - bundler-v1
 
       - run:
-          name: Use Bundler 2.4.22 on Ruby 2.7
+          name: Install Bundler 2.4.22 & Gems
           command: |
-            gem uninstall -aIx bundler || true
             gem install bundler -v 2.4.22
             bundle _2.4.22_ config set path 'vendor/bundle'
             bundle _2.4.22_ install --jobs=4 --retry=3
@@ -28,3 +27,19 @@ jobs:
           key: bundler-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
+
+      - run:
+          name: Run tests
+          command: |
+            bundle _2.4.22_ exec rake spec
+
+      - run:
+          name: Run RuboCop
+          command: |
+            bundle _2.4.22_ exec rubocop
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
