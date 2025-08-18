@@ -8,6 +8,7 @@ My intention with this take-home assignment is to demonstrate how I leverage the
 
 ## Project Setup 
 Each version of the HackerRank problem lives in it's own directory. 
+```
 bot_saves_princess_1
 ├── lib
 │   ├── bot.rb
@@ -25,8 +26,9 @@ bot_saves_princess_1
 │   ├── gridbuilder_spec.rb
 │   ├── position_spec.rb
 │   └── spec_helper.rb
-
+```
 The HackerRank solutions ready for copypasting live in the root directory, along with the Gemfile, Gemfile.lock, README, CircleCi and Ruby config. 
+```
 .
 ├── .circleci
 │   └── config.yml
@@ -44,8 +46,26 @@ The HackerRank solutions ready for copypasting live in the root directory, along
 ├── hackerrank_bot_saves_princess_2.rb
 ├── Rakefile
 └── README.md
+``` 
+HackerRank link: 
+- [HackerRank: Bot Saves Princess](https://www.hackerrank.com/challenges/saveprincess)
+- [HackerRank: Bot Saves Princess 2](https://www.hackerrank.com/challenges/saveprincess2)
 
+## Local Development
 Upon cloning the project(git clone https://github.com/Henchworm/Bot-Saves-Princess.git), run ```bundle install``` to install dependencies. 
+
+You can run the games locally by cding into the 'lib' directory of either challening and running ```ruby runner.rb```. 
+NOTE: bot_saves_princess_2 requires you to create your own grid. Here's an example of the prompt and expected output:
+```
+Enter grid size (odd number >= 3):
+3
+Enter each row of the grid (3 total):
+Row 1: --- 
+Row 2: p--
+Row 3: --m
+
+Next move: UP
+```
 
 ## Running the Test Suite
 
