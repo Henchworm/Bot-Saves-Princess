@@ -15,11 +15,11 @@ task :spec2 do
 end
 
 desc 'Run all specs for both Princess 1 and 2'
-task :spec_all => [:spec1, :spec2]
+task spec_all: %i[spec1 spec2]
 
 desc 'Run RuboCop'
 task :rubocop do
-  sh 'bundle exec rubocop'
+  sh 'bundle exec rubocop -c .rubocop.yml', verbose: false
 end
 
 desc 'Run linter and all specs'

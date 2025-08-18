@@ -28,11 +28,11 @@ class Grid
 
   def validate_shape
     # I first designed this method with the idea that the user would input the grid themselves with '-,p,-, etc:
-    # then I thought that would deliver added complexity to the user. 
-    # The format of the grid is now generated in class GridBuilder, 
-    # which will always place bot 'm' in the center and 'p' in a random corner. 
-    # Currently, the only meaning validation is the first two coniditons: #odd? and n < 3. 
-    # I kept the other validations for this to keep it flexible for future implementations. 
+    # then I thought that would deliver added complexity to the user.
+    # The format of the grid is now generated in class GridBuilder,
+    # which will always place bot 'm' in the center and 'p' in a random corner.
+    # Currently, the only meaning validation is the first two coniditons: #odd? and n < 3.
+    # I kept the other validations for this to keep it flexible for future implementations.
     raise GridError, "N must be odd: received #{n}" unless n.odd?
 
     raise GridError, "N must be >= 3: received #{n}" if n < 3

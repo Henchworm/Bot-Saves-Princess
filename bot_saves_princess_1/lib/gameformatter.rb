@@ -1,4 +1,3 @@
-# lib/game_formatter.rb
 # frozen_string_literal: true
 
 class GameFormatter

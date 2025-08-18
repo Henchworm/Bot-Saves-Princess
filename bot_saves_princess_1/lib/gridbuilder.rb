@@ -1,4 +1,3 @@
-# challenges/bot_saves_princess_1/lib/grid_builder.rb
 # frozen_string_literal: true
 
 require_relative 'grid'

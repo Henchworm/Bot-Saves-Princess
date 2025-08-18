@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-#HackerRank submission for 'Bot Saves Princess' with heavy OOP/Rubyism focus. 
-#Removed all custom error handling, user input validation, builder classes and helpers that exist in bot_saves_princess_1 directory. 
+# HackerRank submission for 'Bot Saves Princess' with heavy OOP/Rubyism focus.
+# Removed all custom error handling, user input validation, builder classes and helpers that exist in bot_saves_princess_1 directory.
 
 class Position
   attr_reader :row, :column
@@ -77,8 +77,8 @@ def displayPathtoPrincess(n, rows)
   end
 end
 
-  if __FILE__ == $PROGRAM_NAME
-    n = gets.to_i
-    grid = Array.new(n) { gets.chomp }
-    displayPathtoPrincess(n, grid)
-  end
+if __FILE__ == $PROGRAM_NAME
+  n = gets.to_i
+  grid = Array.new(n) { gets.chomp }
+  displayPathtoPrincess(n, grid)
+end

@@ -36,7 +36,7 @@ jobs:
       - run:
           name: Run RuboCop
           command: |
-            bundle _2.4.22_ exec rubocop
+            bundle _2.4.22_ exec rake -f Rakefile rubocop
 
 workflows:
   version: 2
