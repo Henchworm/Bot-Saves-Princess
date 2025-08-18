@@ -31,7 +31,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            bundle _2.4.22_ exec rake spec
+            bundle _2.4.22_ exec rake spec_all
 
       - run:
           name: Run RuboCop
