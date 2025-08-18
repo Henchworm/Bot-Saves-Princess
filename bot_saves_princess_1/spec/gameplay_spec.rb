@@ -54,18 +54,18 @@ RSpec.describe GamePlay do
     it 'raises GameError through #validate_input and retriesuntil valid number is provided' do
       allow(GameFormatter).to receive(:prompt_input)
       allow(GameFormatter).to receive(:print_input_error)
-    
+
       # First input invalid ('abc'), second input valid ('5')
       allow(gameplay).to receive(:gets).and_return('abc', '5')
-    
+
       expect(GameFormatter).to receive(:print_input_error).with('Input must be a number')
       expect(gameplay.send(:validate_input)).to eq(5)
     end
 
     it 'prints grid error and retries until valid grid is built' do
-      #this is the most complicated test of the bunch: simulating gameplay all the way to 
-      #raising a GridError. The conditions to raise a GridError are deeply nested, 
-      #and I wanted to avoid using Ruby's tempting but dangerous'.send' method.
+      # this is the most complicated test of the bunch: simulating gameplay all the way to
+      # raising a GridError. The conditions to raise a GridError are deeply nested,
+      # and I wanted to avoid using Ruby's tempting but dangerous'.send' method.
       allow(GameFormatter).to receive(:prompt_input)
       allow(GameFormatter).to receive(:print_input_error)
       allow(GameFormatter).to receive(:print_grid_error)
@@ -80,16 +80,14 @@ RSpec.describe GamePlay do
 
       # Second attempt: return a grid double with expected methods
       grid_double = instance_double('Grid',
-        rows: ['-----', '--m--', '-----', '--p--', '-----'],
-        find_character: nil,
-        center: instance_double('Position', row: 2, column: 2)
-      )
+                                    rows: ['-----', '--m--', '-----', '--p--', '-----'],
+                                    find_character: nil)
       expect(GridBuilder).to receive(:build).with(good_n).and_return(grid_double)
 
       expect(GameFormatter).to receive(:print_grid_error).with('N must be odd: received 4')
 
       # stub pathing methods so #play completes
-      allow(Bot).to receive(:new).and_return(double('Bot', path_to: ['UP', 'LEFT']))
+      allow(Bot).to receive(:new).and_return(double('Bot', path_to: %w[UP LEFT]))
 
       gameplay.play
     end
